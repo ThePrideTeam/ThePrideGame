@@ -1,6 +1,26 @@
 <html>
     <head>
+    <style>
+    td{
+       border:none; 
+        padding:0px;
+    }
+    table{
+        border:none;
+    }
+    img{
+        margin:none;
+        padding:0px;
+
+    }
+    tr{
+        padding:0px;
+    }
+
+    </style>
     <script src="jquery-1.11.3.js"></script>
+    <script src="rendergraphics.js"></script>
+    
 <script type="text/javascript">
    var lines = [];
     var ci=0;
@@ -82,7 +102,8 @@ function processData(allText) {
     
     function start_game()
     {
-        dis_check();
+        //dis_check();
+            rendergraphics_full(lines);
         
     }
     
@@ -94,7 +115,7 @@ function processData(allText) {
     {
         e = e || window.event;
         var oldi=ci;
-            var oldj=cj;
+        var oldj=cj;
         if (e.keyCode == '38') {
         //alert("up arrow");
             
@@ -111,7 +132,7 @@ function processData(allText) {
                 lines[ci][cj]="S";
             }
             
-            dis_check();
+            //dis_check();
         
     }
     else if (e.keyCode == '40') {
@@ -128,7 +149,7 @@ function processData(allText) {
                 lines[oldi][oldj]="T";
                 lines[ci][cj]="S";
             }
-        dis_check();
+        //dis_check();
     }
     else if (e.keyCode == '37') {
        //alert("left arrow");
@@ -144,7 +165,7 @@ function processData(allText) {
                 lines[oldi][oldj]="T";
                 lines[ci][cj]="S";
             }
-        dis_check();
+        //dis_check();
     }
     else if (e.keyCode == '39') {
        //alert("right arrow");
@@ -160,10 +181,12 @@ function processData(allText) {
                 lines[oldi][oldj]="T";
                 lines[ci][cj]="S";
             }
-        dis_check();
+        //dis_check();
         
     }
-    }
+    //alert("sir");
+    rendergraphics_partial(lines, ci, cj, oldi, oldj);
+}
     
     
     
